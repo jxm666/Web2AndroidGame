@@ -1,0 +1,26 @@
+<div class="remoteStreams" ng-controller="RemoteStreamsController as rtc">
+	<h2>Remote Streams</h2>
+	<!-- <button onclick="videoAll(this)">全屏</button> -->
+	<div id="remoteVideosContainer"></div>
+
+	<table>
+    	<thead>
+    		<tr>
+        		<th>Stream</th><th>1-way</th><th>2-way</th>
+   			</tr>
+   		</thead>
+    	<tbody>
+    		<tr ng-repeat="stream in rtc.remoteStreams" ng-class="{'selected' : stream.isPlaying}">
+        		<td><a>{{stream.name}}</a></td>
+                <td ng-click="rtc.view(stream)"><a>View</a></td>
+                <td ng-click="rtc.call(stream)"><a>Call</a></td>
+			    <td ng-click="rtc.showMessage(stream)"><a>获取值</a></td>
+    		</tr>
+		</tbody>
+	</table>
+
+	<li ng-click="rtc.loadData()" style="width: 240px">
+        <a href>Refresh</a>
+    </li>
+	<div id="showMessage" style="margin:0 20px;"></div>
+<div class="remoteStreams">
